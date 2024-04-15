@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    background-color: dimgrey;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    background-color: dimgrey;
+    padding: 10px;
+    border: solid black 2px;
+    width: 70%;
+    height: 700px;
+    margin: auto;
+    justify-content: space-evenly;
+}
+#calculatorScreen{
+    border: solid black 2px;
+    width: 90%;
+    height: 25%;
+    margin:15px auto;
+    grid-column: 1 / 6;
+}
+#calculatorForm{
+    padding: 7.5%;
+}
