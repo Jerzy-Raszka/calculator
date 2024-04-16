@@ -21,8 +21,8 @@ const selectOperation = (_operation) =>{
     if(!isSelectingSecondNumber){
         document.getElementById("calculatorScreen").innerHTML += _operation;
         oldNumber = number;
-        number = "";
         isSelectingSecondNumber = true;
+        number = "";
         operation = _operation;
         isDisplayingResult = false;
     }
