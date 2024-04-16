@@ -1,9 +1,11 @@
 * {
     box-sizing: border-box;
 }
+
 body{
     background-color: dimgrey;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
@@ -16,7 +18,8 @@ body{
     margin: auto;
     justify-content: space-evenly;
 }
-#calculatorScreen{
+
+#calculator-screen{
     border: solid black 2px;
     width: 90%;
     height: 25%;
