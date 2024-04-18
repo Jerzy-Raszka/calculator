@@ -2,7 +2,7 @@ let number = "";
 let oldNumber = "";
 let isSelectingSecondNumber = false;
 let isDisplayingResult = false;
-let operation;
+let operation = "";
 const screen = document.getElementById("calculator-screen");
 
 const equation = document.getElementById("equation");
@@ -19,14 +19,19 @@ const onOperationSelect = (_operation) => {
 }
 
 const onClear = ()=> {
-    location.reload();
+    number = "";
+    oldNumber = "";
+    isSelectingSecondNumber = false;
+    isDisplayingResult = false;
+    operation = "";
+    screen.innerHTML = "";
 }
 
 const onDelete = () =>{
-    if(number !== ""){
-        screen.innerHTML = screen.innerHTML.replace(/.$/, '');
-        number = number.replace(/.$/, '');
-    }
+        if (!isDisplayingResult && number !== "") {
+            screen.innerHTML = screen.innerHTML.replace(/.$/, '');
+            number = number.replace(/.$/, '');
+        }
 }
 
 const selectOperation = (_operation) =>{
@@ -63,13 +68,15 @@ function calculateAndShowResult() {
             number = Number(oldNumber) * Number(number);
             break;
         case '/':
-            if(Number(number) !== 0){
-                number = Number(oldNumber) / Number(number);
+            try{
+                if(number === "0"){
+                    throw "Cant divide by zero";
+                }
             }
-            else{
+            catch(err){
                 location.reload();
-                alert("Can't divied by zero")
             }
+            number = Number(oldNumber) / Number(number);
             break;
     }
     screen.innerHTML = number;
