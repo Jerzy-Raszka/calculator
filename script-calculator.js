@@ -3,6 +3,7 @@ let oldNumber = "";
 let isSelectingSecondNumber = false;
 let isDisplayingResult = false;
 let operation = "";
+let isOperationSelected = false;
 const screen = document.getElementById("calculator-screen");
 
 const equation = document.getElementById("equation");
@@ -36,13 +37,18 @@ const onDelete = () =>{
 }
 
 const selectOperation = (_operation) =>{
-    if(!isSelectingSecondNumber){
+    if(_operation === "-" && number===""){
+        screen.innerHTML += _operation;
+        number += "-";
+    }
+    else if(!isSelectingSecondNumber){
         screen.innerHTML += _operation;
         oldNumber = number;
         isSelectingSecondNumber = true;
         number = "";
         operation = _operation;
         isDisplayingResult = false;
+        isOperationSelected = true;
     }
 }
 
