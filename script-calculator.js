@@ -8,6 +8,7 @@ const screen = document.getElementById("calculator-screen");
 const equation = document.getElementById("equation");
 
 const onNumberSelect = (_number) =>{
+
     if(!isDisplayingResult) {
         number += _number;
         screen.innerHTML += _number;
@@ -43,11 +44,6 @@ const selectOperation = (_operation) =>{
         operation = _operation;
         isDisplayingResult = false;
     }
-    if(isSelectingSecondNumber && number === ""){
-        screen.innerHTML = screen.innerHTML.replace(/.$/, '');
-        screen.innerHTML += _operation;
-        operation = _operation;
-    }
 }
 
 equation.addEventListener("click", function(){
@@ -79,7 +75,7 @@ function calculateAndShowResult() {
             number = Number(oldNumber) / Number(number);
             break;
     }
-    screen.innerHTML = number;
+    screen.innerHTML = parseFloat(Number(number).toFixed(5));
     isSelectingSecondNumber = false;
     isDisplayingResult = true;
 }
