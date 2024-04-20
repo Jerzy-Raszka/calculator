@@ -63,19 +63,18 @@ const onDelete = () =>{
 
 const selectOperation = (_operation) =>{
     isDot = false;
-    if(number !== "") {
-        if (_operation === "-" && number === "") {
-            screen.innerHTML += _operation;
-            number += "-";
-        } else if (!isSelectingSecondNumber) {
-            screen.innerHTML += _operation;
-            oldNumber = number;
-            isSelectingSecondNumber = true;
-            number = "";
-            operation = _operation;
-            isDisplayingResult = false;
-            isOperationSelected = true;
-        }
+    if (_operation === "-" && number === "") {
+        screen.innerHTML += _operation;
+        number += "-";
+    }
+    else if (!isSelectingSecondNumber && number !== "" && number !== "-") {
+        screen.innerHTML += _operation;
+        oldNumber = number;
+        isSelectingSecondNumber = true;
+        number = "";
+        operation = _operation;
+        isDisplayingResult = false;
+        isOperationSelected = true;
     }
 }
 
